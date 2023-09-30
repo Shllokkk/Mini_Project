@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateAccountPageController">
    <children>
-      <Pane layoutX="6.0" layoutY="143.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #6c25be;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="6.0" layoutY="143.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" layoutX="33.0" layoutY="21.0" prefHeight="70.0" prefWidth="135.0" text="Sign Up" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="33.0" layoutY="21.0" prefHeight="70.0" prefWidth="135.0" text="Sign Up">
                <font>
                   <Font size="34.0" />
                </font>
@@ -57,7 +57,7 @@
       </Pane>
       <HBox layoutX="221.0" layoutY="331.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
          <children>
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your phone no." style="-fx-background-color: #e9f5f9;">
+            <TextField fx:id="phonefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your phone no." style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
@@ -66,7 +66,7 @@
       </HBox>
       <HBox layoutX="221.0" layoutY="253.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
          <children>
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your email ID" style="-fx-background-color: #e9f5f9;">
+            <TextField fx:id="emailfield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your email ID" style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
@@ -75,7 +75,7 @@
       </HBox>
       <HBox layoutX="221.0" layoutY="406.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
          <children>
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="create a username" style="-fx-background-color: #e9f5f9;">
+            <TextField fx:id="unamefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="create a username" style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
@@ -84,7 +84,7 @@
       </HBox>
       <HBox layoutX="221.0" layoutY="93.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
          <children>
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your first name" style="-fx-background-color: #e9f5f9;">
+            <TextField fx:id="fnamefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your first name" style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
@@ -93,7 +93,7 @@
       </HBox>
       <HBox layoutX="221.0" layoutY="168.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
          <children>
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your last name" style="-fx-background-color: #e9f5f9;">
+            <TextField fx:id="lnamefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your last name" style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
@@ -102,14 +102,14 @@
       </HBox>
       <HBox layoutX="221.0" layoutY="482.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
          <children>
-            <PasswordField minHeight="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="minimum 8 characters or more" style="-fx-background-color: #e9f5f9;">
+            <PasswordField fx:id="createpassfield" minHeight="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="minimum 8 characters or more" style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
             </PasswordField>
          </children>
       </HBox>
-      <Button layoutX="758.0" layoutY="633.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #ffffff;" text="Login" textFill="#0d05ff">
+      <Button fx:id="redirectloginbutton" layoutX="758.0" layoutY="633.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #ffffff;" text="Login" textFill="#0d05ff">
          <font>
             <Font size="14.0" />
          </font>
@@ -121,12 +121,13 @@
       </Label>
       <HBox layoutX="222.0" layoutY="561.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
          <children>
-            <PasswordField minHeight="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="re-enter your password" style="-fx-background-color: #e9f5f9;">
+            <PasswordField fx:id="confpassfield" minHeight="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="re-enter your password" style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
             </PasswordField>
          </children>
       </HBox>
+      <Label fx:id="successlabel" layoutX="222.0" layoutY="630.0" prefHeight="17.0" prefWidth="248.0" />
    </children>
 </AnchorPane>

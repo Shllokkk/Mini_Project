@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controler="ReviewPageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="156.0" layoutY="156.0" prefHeight="166.0" prefWidth="466.0" style="-fx-border-color: #000000;">
          <children>
-            <TextField alignment="TOP_LEFT" layoutX="7.0" layoutY="8.0" prefHeight="147.0" prefWidth="452.0" promptText="Share here....." style="-fx-background-color: #e9f5f9;">
+            <TextField fx:id="sharefield" alignment="TOP_LEFT" layoutX="7.0" layoutY="10.0" prefHeight="147.0" prefWidth="452.0" promptText="Share here....." style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -24,7 +23,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="555.0" layoutY="326.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d7bff2;" text="Submit">
+      <Button fx:id="submitbutton" layoutX="555.0" layoutY="338.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d7bff2;" text="Submit">
          <font>
             <Font size="15.0" />
          </font>
@@ -34,22 +33,22 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="156.0" layoutY="430.0" prefHeight="42.0" prefWidth="116.0" text="Contact US at.....">
+      <Label alignment="CENTER" layoutX="156.0" layoutY="415.0" prefHeight="42.0" prefWidth="116.0" text="Contact US at.....">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="301.0" layoutY="441.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #d7bff2; -fx-border-color: #000000;" text="Email: xyz@gmail.com">
+      <Button layoutX="296.0" layoutY="425.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #d7bff2; -fx-border-color: #000000;" text="Email: xyz@gmail.com">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="475.0" layoutY="441.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #d7bff2; -fx-border-color: #000000;" text="Phone: 9191919191">
+      <Button layoutX="476.0" layoutY="425.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #d7bff2; -fx-border-color: #000000;" text="Phone: 9191919191">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="658.0" layoutY="625.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Back to DashBoard....." textFill="#1600eb">
+      <Button fx:id="redirectbutton" layoutX="658.0" layoutY="625.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Back to DashBoard....." textFill="#0099ff">
          <font>
             <Font size="16.0" />
          </font>

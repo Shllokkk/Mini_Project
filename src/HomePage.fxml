@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
    <children>
       <Pane prefHeight="58.0" prefWidth="844.0" style="-fx-background-color: #6c25be;" AnchorPane.bottomAnchor="624.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="22.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: #6c25be;" text="User_name" textFill="WHITE">
+            <Button fx:id="usernamebutton" layoutX="18.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: #6c25be;" text="User_name" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -20,22 +20,22 @@
          </children></Pane>
       <Pane layoutX="32.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d7bff2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="630.0" AnchorPane.topAnchor="52.0">
          <children>
-            <Button layoutX="26.0" layoutY="38.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #6c25be;" text="ADD INCOME" textFill="WHITE">
+            <Button fx:id="addincomebutton" layoutX="26.0" layoutY="38.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #6c25be;" text="ADD INCOME" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="26.0" layoutY="126.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #6c25be;" text="ADD EXPENSE" textFill="WHITE">
+            <Button fx:id="addexpensebutton" layoutX="26.0" layoutY="126.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #6c25be;" text="ADD EXPENSE" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="26.0" layoutY="213.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #6c25be;" text="INVENSTMENTS" textFill="WHITE">
+            <Button fx:id="investmentbutton" layoutX="26.0" layoutY="213.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #6c25be;" text="INVENSTMENTS" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="26.0" layoutY="303.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #6c25be;" text="MONITOR" textFill="WHITE">
+            <Button fx:id="monitorbutton" layoutX="26.0" layoutY="303.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="128.0" style="-fx-background-color: #6c25be;" text="MONITOR" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -43,7 +43,7 @@
          </children>
       </Pane>
       <Label alignment="CENTER" layoutX="535.0" layoutY="628.0" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-background-radius: 6px;" text="Have any suggestions for US?" textFill="#0099ff" />
-      <Button layoutX="738.0" layoutY="628.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #0099ff;" text="Share here" textFill="WHITE">
+      <Button fx:id="sharebutton" layoutX="738.0" layoutY="628.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #0099ff;" text="Share here" textFill="WHITE">
          <font>
             <Font size="11.0" />
          </font>
