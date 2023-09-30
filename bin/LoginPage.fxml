@@ -93,7 +93,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Button fx:id="registerbutton" layoutX="97.0" layoutY="29.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #d7bff2;" text="Register" textFill="#1600eb">
+            <Button fx:id="registerbutton" layoutX="97.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCreateAccountPage" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #d7bff2;" text="Register" textFill="#1600eb">
                <font>
                   <Font size="17.0" />
                </font>
@@ -105,7 +105,7 @@
             </Button>
          </children>
       </Pane>
-      <Button fx:id="loginbutton" alignment="CENTER" layoutX="39.0" layoutY="316.0" mnemonicParsing="false" onAction="#click" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #6c25be;" text="Login" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="35.0">
+      <Button fx:id="loginbutton" alignment="CENTER" layoutX="39.0" layoutY="316.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #6c25be;" text="Login" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="35.0">
          <font>
             <Font size="14.0" />
          </font>

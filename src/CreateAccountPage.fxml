@@ -109,7 +109,7 @@
             </PasswordField>
          </children>
       </HBox>
-      <Button fx:id="redirectloginbutton" layoutX="758.0" layoutY="633.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #ffffff;" text="Login" textFill="#0d05ff">
+      <Button fx:id="redirectloginbutton" layoutX="758.0" layoutY="633.0" mnemonicParsing="false" onAction="#toLoginPage" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #ffffff;" text="Login" textFill="#0d05ff">
          <font>
             <Font size="14.0" />
          </font>
@@ -128,6 +128,11 @@
             </PasswordField>
          </children>
       </HBox>
-      <Label fx:id="successlabel" layoutX="222.0" layoutY="630.0" prefHeight="17.0" prefWidth="248.0" />
+      <Label fx:id="successlabel" layoutX="308.0" layoutY="640.0" prefHeight="17.0" prefWidth="248.0" />
+      <Button fx:id="savebutton" layoutX="222.0" layoutY="632.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #0099ff;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

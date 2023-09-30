@@ -13,6 +13,4 @@ public class InvestPageController {
 
     @FXML
     private Button savebutton;
-    @FXML
-    private Button closebutton;
 }

@@ -13,6 +13,4 @@ public class ExpensePageController {
 
     @FXML
     private Button savebutton;
-    @FXML
-    private Button closebutton;
 }

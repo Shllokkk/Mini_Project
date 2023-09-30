@@ -48,7 +48,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="redirectbutton" layoutX="658.0" layoutY="625.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Back to DashBoard....." textFill="#0099ff">
+      <Button fx:id="redirectbutton" layoutX="658.0" layoutY="625.0" mnemonicParsing="false" onAction="#toHomePage" style="-fx-background-color: #ffffff;" text="Back to DashBoard....." textFill="#0099ff">
          <font>
             <Font size="16.0" />
          </font>

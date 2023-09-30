@@ -13,6 +13,5 @@ public class IncomePageController {
 
     @FXML
     private Button savebutton;
-    @FXML
-    private Button closebutton;
+
 }
