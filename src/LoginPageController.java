@@ -61,7 +61,7 @@ public class LoginPageController {
         JDBC connectnow = new JDBC();
         Connection connectdb = connectnow.getconnection();
 
-        String verifylogin = "select count(1) from userlogindetails where email = '" + emailfield.getText() + "' and password  = '" + passfield.getText() + "'";
+        String verifylogin = "select count(1) from usercredentials where email = '" + emailfield.getText() + "' and password  = '" + passfield.getText() + "'";
 
         Statement statement = null;
         statement = connectdb.createStatement();

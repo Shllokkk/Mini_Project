@@ -8,7 +8,7 @@ public class JDBC{
 
     public Connection getconnection() throws ClassNotFoundException, SQLException{        // the main method may throw these checked exceptions 
                                                                              
-        String url ="jdbc:mysql://localhost:3306/demoDB";                                            // if the url, username or password are incorrect
+        String url ="jdbc:mysql://localhost:3306/trial";                                            // if the url, username or password are incorrect
         String username ="root";                                                                     // it may throw SQLException
         String password ="Superfly23#";                   
         

@@ -47,9 +47,7 @@ public class CreateAccountPageController {
         System.out.println("Button clicked!");
         if (!fnamefield.getText().isEmpty() && !lnamefield.getText().isEmpty() && !emailfield.getText().isEmpty() && 
         !phonefield.getText().isEmpty()&& !createpassfield.getText().isEmpty() && !confpassfield.getText().isEmpty()) {
- 
-            validateSignUp(event);
-            errorlabel.setText("Sign Up successful!");
+            
             fnamefield.setStyle("");
             lnamefield.setStyle("");
             emailfield.setStyle("");
@@ -57,6 +55,9 @@ public class CreateAccountPageController {
             unamefield.setStyle("");
             createpassfield.setStyle("");
             confpassfield.setStyle("");
+            validateSignUp(event);
+            /*errorlabel.setText("Sign Up successful!");*/
+            
         }
 
         else {
@@ -108,18 +109,71 @@ public class CreateAccountPageController {
 
     private void validateSignUp(ActionEvent event) throws Exception{
         System.out.println("Inside validateSignUp....");
-        JDBC connectnow=new JDBC();
-        Connection connectdb=connectnow.getconnection();
+
+        String phoneno=phonefield.getText();
+        int flag=0;
+        if(phoneno.length()!=10) {
+            phonefield.setStyle("-fx-border-color: red;");
+            errorlabel.setText("⚠ Please enter valid phone number!");
+            flag++;
+        }
+
+        if(flag==0) {
+            phonefield.setStyle("");
+            errorlabel.setText("");
+
+            int check=0;
+            flag=0;
+
+            JDBC connectnow=new JDBC();
+            Connection connectdb=connectnow.getconnection();
+
+            Statement statement=null;
+            statement=connectdb.createStatement();
         
-        String recordcheck="select count(1) from userlogindetails where email = '" + emailfield.getText() +"'";
+            String emailcheck="select count(1) from userdetails where useremail = '" + emailfield.getText() +"'";
+            String phonecheck="select count(1) from userdetails where userphn= '" + phonefield.getText() +"'";
+            String unamecheck="select count(1) from userdetails where username= '" + unamefield.getText() +"'";
 
-        Statement statement=null;
-        statement=connectdb.createStatement();
+            ResultSet emailresult=statement.executeQuery(emailcheck);
+            while(emailresult.next()&&flag==0) {
+                if(emailresult.getInt(1)==1) {
+                    errorlabel.setText("Account for this email address already exists!");
+                    flag++;
+                }
+                else
+                    check++;
+            }
+            ResultSet phoneresult=statement.executeQuery(phonecheck);
+            while(phoneresult.next()&&flag==0) {
+                if(phoneresult.getInt(1)==1) {
+                    errorlabel.setText("Account for this phone no. already exists!");
+                    flag++;
+                }
+                else
+                    check++;
+            }
+            ResultSet unameresult=statement.executeQuery(unamecheck);
+            while(unameresult.next()&&flag==0) {
+                if(unameresult.getInt(1)==1)
+                    errorlabel.setText("Account for this username already exists!");
+                else
+                    check++;
+            }
 
-        ResultSet result=statement.executeQuery(recordcheck);
-        while(result.next()) {
-            if(result.getInt(1)==1)
-                errorlabel.setText("record exists!");
+            if(check>2) {
+                String insertusercredentials="insert into usercredentials (email,password) values ('"+emailfield.getText()+"','"+confpassfield.getText()+"')";
+                String insertuserdetails="insert into userdetails (username,firstname,lastname,userphn,useremail) values ('"+unamefield.getText()+"','"+fnamefield.getText()+"','"+lnamefield.getText()+"','"+phonefield.getText()+"','"+emailfield.getText()+"')";
+
+                int x=statement.executeUpdate(insertusercredentials);
+                int y=statement.executeUpdate(insertuserdetails);
+                if(x==1&&y==1) {
+                    System.out.println("data inserted!");
+                    errorlabel.setText("Sign up successful!");
+                }
+                else
+                    System.out.println("failed to insert data!");
+            }
         }
     }
 
