@@ -55,9 +55,9 @@
             </Label>
          </children>
       </Pane>
-      <HBox layoutX="221.0" layoutY="331.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
+      <HBox layoutX="221.0" layoutY="331.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="536.0" AnchorPane.leftAnchor="221.0">
          <children>
-            <TextField fx:id="phonefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your phone no." style="-fx-background-color: #e9f5f9;">
+            <TextField fx:id="fnamefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your phone no." style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
@@ -82,9 +82,9 @@
             </TextField>
          </children>
       </HBox>
-      <HBox layoutX="221.0" layoutY="93.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;">
+      <HBox layoutX="221.0" layoutY="93.0" prefHeight="45.0" prefWidth="400.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="298.0">
          <children>
-            <TextField fx:id="fnamefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your first name" style="-fx-background-color: #e9f5f9;">
+            <TextField fx:id="phonefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="400.0" promptText="Enter your first name" style="-fx-background-color: #e9f5f9;">
                <font>
                   <Font size="19.0" />
                </font>
@@ -109,7 +109,7 @@
             </PasswordField>
          </children>
       </HBox>
-      <Button fx:id="redirectloginbutton" layoutX="758.0" layoutY="633.0" mnemonicParsing="false" onAction="#toLoginPage" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #ffffff;" text="Login" textFill="#0d05ff">
+      <Button fx:id="redirectloginbutton" layoutX="758.0" layoutY="633.0" mnemonicParsing="false" onAction="#onRedirectLoginButtonClick" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #ffffff;" text="Login" textFill="#0d05ff">
          <font>
             <Font size="14.0" />
          </font>
@@ -128,8 +128,8 @@
             </PasswordField>
          </children>
       </HBox>
-      <Label fx:id="successlabel" layoutX="308.0" layoutY="640.0" prefHeight="17.0" prefWidth="248.0" />
-      <Button fx:id="savebutton" layoutX="222.0" layoutY="632.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #0099ff;" text="Save" textFill="WHITE">
+      <Label fx:id="errorlabel" layoutX="308.0" layoutY="640.0" prefHeight="17.0" prefWidth="248.0" />
+      <Button fx:id="signupbutton" layoutX="222.0" layoutY="632.0" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #0099ff;" text="Sign Up" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

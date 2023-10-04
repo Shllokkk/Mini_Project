@@ -2,8 +2,11 @@
 
 import java.sql.*;                                                             // importing whole java.sql package to use its interfaces and classes
 
-public class JDBC{                                                             // main class
-    public static void main(String[] args) throws ClassNotFoundException, SQLException{        // the main method may throw these checked exceptions 
+public class JDBC{     
+    
+    Connection connection=null;
+
+    public Connection getconnection() throws ClassNotFoundException, SQLException{        // the main method may throw these checked exceptions 
                                                                              
         String url ="jdbc:mysql://localhost:3306/demoDB";                                            // if the url, username or password are incorrect
         String username ="root";                                                                     // it may throw SQLException
@@ -13,22 +16,23 @@ public class JDBC{                                                             /
         Class.forName("com.mysql.cj.jdbc.Driver");                                         // this line may throw ClassNotFoundException                           
 
         // create connection to the database
-        Connection con =DriverManager.getConnection(url,username,password);                  
+        Connection connection =DriverManager.getConnection(url,username,password);                  
         System.out.println("Connection established!");
 
-        String query ="update sample set email='****Statement****' wher id=1";                       // this line may throw SQLSyntaxErrorException
+        //String query ="update sample set email='****Statement****' wher id=1";                       this line may throw SQLSyntaxErrorException
 
         //create a statement
-        Statement stmt =con.createStatement();
+        //Statement stmt =con.createStatement();
         // execute the statement
-        stmt.executeUpdate(query);
-        System.out.println("Statement executed!");
+        //stmt.executeUpdate(query);
+        //System.out.println("Statement executed!");
 
-        PreparedStatement prepstmt =con.prepareStatement("update sample set email='****PreparedStatement****' where id=2");  
-        prepstmt.executeUpdate();
-        System.out.println("PreparedStatement executed!");
+        //PreparedStatement prepstmt =con.prepareStatement("update sample set email='****PreparedStatement****' where id=2");  
+        //prepstmt.executeUpdate();
+        //System.out.println("PreparedStatement executed!");
         
         // close the connection
-        con.close();
+        //con.close();
+        return connection;
     }
 }

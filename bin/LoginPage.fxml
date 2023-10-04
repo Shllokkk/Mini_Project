@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
    <children>
       <VBox layoutX="499.0" prefHeight="676.0" prefWidth="347.0" style="-fx-background-color: #6c25be;">
          <children>
@@ -32,7 +32,7 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
+                              <Color blue="1.0" green="1.0" red="1.0" />
                            </color>
                         </Stop>
                      </stops>
@@ -89,31 +89,29 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
+                              <Color blue="1.0" green="1.0" red="1.0" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </textFill>
             </Label>
-            <Button fx:id="registerbutton" layoutX="97.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCreateAccountPage" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #d7bff2;" text="Register" textFill="#1600eb">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button>
-            <Button fx:id="forgotpassbutton" layoutX="313.0" layoutY="29.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="178.0" style="-fx-background-color: #d7bff2;" text="Forgot Password?" textFill="#1600eb">
+            <Button fx:id="registerbutton" layoutX="97.0" layoutY="29.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #d7bff2;" text="Register" textFill="#1600eb">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Button fx:id="loginbutton" alignment="CENTER" layoutX="39.0" layoutY="316.0" mnemonicParsing="false" onAction="#toHomePage" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #6c25be;" text="Login" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="35.0">
+      <Button fx:id="loginbutton" alignment="CENTER" layoutX="39.0" layoutY="316.0" mnemonicParsing="false" onAction="#onLoginButonClick" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #6c25be;" text="Login" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="35.0">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="label" layoutX="39.0" layoutY="429.0" prefHeight="33.0" prefWidth="210.0" />
+      <Label fx:id="errorlabel" layoutX="39.0" layoutY="429.0" prefHeight="33.0" prefWidth="345.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
    </children>
    <padding>
       <Insets left="4.0" />
