@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonitorPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonitorPageController">
    <children>
       <Pane layoutX="-6.0" layoutY="-6.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #6c25be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -62,25 +62,25 @@
       </Button>
       <Pane layoutX="290.0" layoutY="38.0" prefHeight="634.0" prefWidth="550.0" style="-fx-background-color: #f2f2f2;">
          <children>
-            <TableView layoutX="6.0" prefHeight="200.0" prefWidth="541.0">
+            <TableView fx:id="incometable" layoutX="6.0" prefHeight="200.0" prefWidth="541.0">
               <columns>
-                <TableColumn editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Income Amount" />
-                <TableColumn prefWidth="150.0" text="Income Type" />
-                  <TableColumn prefWidth="265.0" text="Income Description" />
+                <TableColumn fx:id="incomeamtcolumn" editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Income Amount" />
+                <TableColumn fx:id="incometypecolumn" prefWidth="150.0" text="Income Type" />
+                  <TableColumn fx:id="incomedesccolumn" prefWidth="265.0" text="Income Description" />
               </columns>
             </TableView>
-            <TableView layoutX="6.0" layoutY="217.0" prefHeight="200.0" prefWidth="541.0">
+            <TableView fx:id="expensetable" layoutX="6.0" layoutY="217.0" prefHeight="200.0" prefWidth="541.0">
                <columns>
-                  <TableColumn editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Expense Amount" />
-                  <TableColumn prefWidth="150.0" text="Expense Type" />
-                  <TableColumn prefWidth="265.0" text="Expense Description" />
+                  <TableColumn fx:id="expenseamtcolumn" editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Expense Amount" />
+                  <TableColumn fx:id="expensetypecolumn" prefWidth="150.0" text="Expense Type" />
+                  <TableColumn fx:id="expensedesccolumn" prefWidth="265.0" text="Expense Description" />
                </columns>
             </TableView>
-            <TableView layoutX="6.0" layoutY="434.0" prefHeight="200.0" prefWidth="541.0">
+            <TableView fx:id="investmenttable" layoutX="6.0" layoutY="434.0" prefHeight="200.0" prefWidth="541.0">
                <columns>
-                  <TableColumn editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Investment Amount" />
-                  <TableColumn prefWidth="150.0" text="Investment Type" />
-                  <TableColumn prefWidth="265.0" text="Investment Description" />
+                  <TableColumn fx:id="investamtcolumn" editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Investment Amount" />
+                  <TableColumn fx:id="investtypecolumn" prefWidth="150.0" text="Investment Type" />
+                  <TableColumn fx:id="investdesccolumn" prefWidth="265.0" text="Investment Description" />
                </columns>
             </TableView>
          </children>
