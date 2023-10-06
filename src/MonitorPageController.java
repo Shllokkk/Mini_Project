@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MonitorPageController {
     @FXML
@@ -54,23 +56,32 @@ public class MonitorPageController {
     public ObservableList<User> incomelist=FXCollections.observableArrayList();
 
 
-    public void onGetFinancesButtonClick(ActionEvent event) throws Exception {
+    public void onGetFinancesButtonClick(ActionEvent event)  {
 
         String foreignkey=LoginPageController.foreignkey;
-        String getincomedata = "select (incomeamt,incometype,incomedesc) from userincome where uemail = '"+foreignkey+ "'";
+        String getincomedata = "select incometype,incomeamt,incomedesc from userincome where uemail ='"+foreignkey+"'";
+
 
         JDBC connectnow = new JDBC();
-        Connection connectdb = connectnow.getconnection();
+        Connection connectdb;
+        try {
+            connectdb = connectnow.getconnection();
+            Statement statement = connectdb.createStatement();
+            ResultSet resultset = statement.executeQuery(getincomedata);
 
-        Statement statement = connectdb.createStatement();
-        ResultSet resultset = statement.executeQuery(getincomedata);
+            while(resultset.next()) {
+                String amount=resultset.getString("incomeamt");
+                String type=resultset.getString("incometype");
+                String desc=resultset.getString("incomedesc");
 
-        while(resultset.next()) {
-            String amount=resultset.getString("incomeamt");
-            String type=resultset.getString("incometype");
-            String desc=resultset.getString("incomedesc");
+                User obj=new User(amount, type, desc);
 
-            incomelist.add(new User(amount,type,desc));
+                System.out.println(obj.getAmount()+obj.getType()+obj.getDesc()+foreignkey);
+                
+                incomelist.add(obj);
+            }
+        } catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
         }
         incometable.setItems(incomelist);
     }
