@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 public class LoginPageController {
     
+    public static String foreignkey;
+
     @FXML
     private TextField emailfield;
 
@@ -58,6 +60,7 @@ public class LoginPageController {
     }
 
     private void validateLogin(ActionEvent event) throws ClassNotFoundException,SQLException,IOException{
+         
         JDBC connectnow = new JDBC();
         Connection connectdb = connectnow.getconnection();
 
@@ -71,6 +74,8 @@ public class LoginPageController {
         while(queryResult.next()){
             if (queryResult.getInt(1)==1){
                 errorlabel.setText("Login successful!");
+                foreignkey=emailfield.getText();
+                System.out.println(foreignkey);
 
                 Stage currentstage=(Stage)registerbutton.getScene().getWindow();
                 currentstage.close();

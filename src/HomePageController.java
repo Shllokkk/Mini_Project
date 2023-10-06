@@ -12,6 +12,8 @@ public class HomePageController {
     @FXML
     private Button usernamebutton;
     @FXML
+    private Button logoutbutton;
+    @FXML
     private Button addincomebutton;
     @FXML
     private Button addexpensebutton;
@@ -22,7 +24,7 @@ public class HomePageController {
     @FXML
     private Button sharebutton;
 
-    public void toIncomePage() throws IOException {
+    public void onAddIncomeButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("IncomePage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 600, 400);
@@ -32,7 +34,7 @@ public class HomePageController {
         primaryStage.show();
     }
     
-    public void toExpensePage() throws IOException {
+    public void onAddExpenseButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ExpensePage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 600, 400);
@@ -42,7 +44,7 @@ public class HomePageController {
         primaryStage.show();
     }
 
-    public void toInvestPage() throws IOException {
+    public void onInvestmentButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("InvestPage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 600, 400);
@@ -52,18 +54,31 @@ public class HomePageController {
         primaryStage.show();
     }
 
-    public void toMonitorPage() throws IOException {
+    public void onMonitorButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MonitorPage.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 844, 676);
         Stage primaryStage=new Stage();
         primaryStage.setScene(scene);
         primaryStage.setTitle("JavaFX Application");
         primaryStage.show();
     }
 
-    public void toReviewPage() throws IOException {
+    public void onShareButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPage.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 844, 676);
+        Stage primaryStage=new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("JavaFX Application");
+        primaryStage.show();
+    }
+
+    public void onLogoutButtonClick() throws IOException {
+        Stage currentstage=(Stage)usernamebutton.getScene().getWindow();
+        currentstage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 844, 676);
         Stage primaryStage=new Stage();
