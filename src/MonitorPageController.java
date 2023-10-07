@@ -53,18 +53,28 @@ public class MonitorPageController {
     private TableColumn<User,String> investdesccolumn;
 
     public ObservableList<User> incomelist=FXCollections.observableArrayList();
+    public ObservableList<User> expenselist=FXCollections.observableArrayList();
+    public ObservableList<User> investlist=FXCollections.observableArrayList();
 
 
     public void onGetFinancesButtonClick(ActionEvent event)  {
 
         String foreignkey=LoginPageController.foreignkey;
+
         String getincomedata = "select incometype,incomeamt,incomedesc from userincome where uemail ='"+foreignkey+"'";
+        String getexpensedata = "select expensetype,expenseamt,expensedesc from userexpense where uemail ='"+foreignkey+"'";
+        String getinvestmentdata = "select investmentype,investmentamt,investmentdesc from userinvestment where uemail ='"+foreignkey+"'";
+
         String getincomeamt="select sum(incomeamt) from userincome where uemail='"+foreignkey+"'";
+        String getexpenseamt="select sum(expenseamt) from userexpense where uemail='"+foreignkey+"'";
+        String getinvestmentamt="select sum(investmentamt) from userinvestment where uemail='"+foreignkey+"'";
+
         
         try {
             JDBC connectnow = new JDBC();
             Connection connectdb = connectnow.getconnection();
             Statement statement = connectdb.createStatement();
+
             ResultSet resultset = statement.executeQuery(getincomedata);
 
             while(resultset.next()) {
@@ -72,11 +82,11 @@ public class MonitorPageController {
                 String type=resultset.getString("incometype");
                 String desc=resultset.getString("incomedesc");
 
-                User obj=new User(amount, type, desc);
+                User incomeobj=new User(amount, type, desc);
 
-                System.out.println(obj.getAmount()+obj.getType()+obj.getDesc()+foreignkey);
+                System.out.println(incomeobj.getAmount()+incomeobj.getType()+incomeobj.getDesc());
                 
-                incomelist.add(obj);
+                incomelist.add(incomeobj);
             }
             resultset=statement.executeQuery(getincomeamt);
             totalincomelabel.setText(resultset.getString(1));
