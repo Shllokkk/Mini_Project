@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MonitorPageController {
     @FXML
@@ -60,12 +59,11 @@ public class MonitorPageController {
 
         String foreignkey=LoginPageController.foreignkey;
         String getincomedata = "select incometype,incomeamt,incomedesc from userincome where uemail ='"+foreignkey+"'";
-
-
-        JDBC connectnow = new JDBC();
-        Connection connectdb;
+        String getincomeamt="select sum(incomeamt) from userincome where uemail='"+foreignkey+"'";
+        
         try {
-            connectdb = connectnow.getconnection();
+            JDBC connectnow = new JDBC();
+            Connection connectdb = connectnow.getconnection();
             Statement statement = connectdb.createStatement();
             ResultSet resultset = statement.executeQuery(getincomedata);
 
@@ -80,6 +78,8 @@ public class MonitorPageController {
                 
                 incomelist.add(obj);
             }
+            resultset=statement.executeQuery(getincomeamt);
+            totalincomelabel.setText(resultset.getString(1));
         } catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
         }

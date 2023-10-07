@@ -65,22 +65,22 @@
             <TableView fx:id="incometable" layoutX="6.0" prefHeight="200.0" prefWidth="541.0">
               <columns>
                 <TableColumn fx:id="incomeamtcolumn" editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Income Amount" />
-                <TableColumn fx:id="incometypecolumn" prefWidth="150.0" text="Income Type" />
-                  <TableColumn fx:id="incomedesccolumn" prefWidth="265.0" text="Income Description" />
+                <TableColumn fx:id="incometypecolumn" editable="false" prefWidth="150.0" resizable="false" text="Income Type" />
+                  <TableColumn fx:id="incomedesccolumn" editable="false" prefWidth="265.0" resizable="false" text="Income Description" />
               </columns>
             </TableView>
             <TableView fx:id="expensetable" layoutX="6.0" layoutY="217.0" prefHeight="200.0" prefWidth="541.0">
                <columns>
                   <TableColumn fx:id="expenseamtcolumn" editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Expense Amount" />
-                  <TableColumn fx:id="expensetypecolumn" prefWidth="150.0" text="Expense Type" />
-                  <TableColumn fx:id="expensedesccolumn" prefWidth="265.0" text="Expense Description" />
+                  <TableColumn fx:id="expensetypecolumn" editable="false" prefWidth="150.0" resizable="false" text="Expense Type" />
+                  <TableColumn fx:id="expensedesccolumn" editable="false" prefWidth="265.0" resizable="false" text="Expense Description" />
                </columns>
             </TableView>
             <TableView fx:id="investmenttable" layoutX="6.0" layoutY="434.0" prefHeight="200.0" prefWidth="541.0">
                <columns>
                   <TableColumn fx:id="investamtcolumn" editable="false" prefWidth="120.0" resizable="false" sortable="false" text="Investment Amount" />
-                  <TableColumn fx:id="investtypecolumn" prefWidth="150.0" text="Investment Type" />
-                  <TableColumn fx:id="investdesccolumn" prefWidth="265.0" text="Investment Description" />
+                  <TableColumn fx:id="investtypecolumn" editable="false" prefWidth="150.0" resizable="false" text="Investment Type" />
+                  <TableColumn fx:id="investdesccolumn" editable="false" prefWidth="265.0" resizable="false" text="Investment Description" />
                </columns>
             </TableView>
          </children>
