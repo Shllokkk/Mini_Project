@@ -88,8 +88,10 @@ public class MonitorPageController {
                 
                 incomelist.add(incomeobj);
             }
-            resultset=statement.executeQuery(getincomeamt);
-            totalincomelabel.setText(resultset.getString(1));
+            ResultSet rset=statement.executeQuery(getincomeamt);
+            rset.next();
+            String str=rset.getString(1);
+            totalincomelabel.setText(str);
         } catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
         }
