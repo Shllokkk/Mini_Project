@@ -1,18 +1,22 @@
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 
-public class MonitorPageController {
+public class MonitorPageController implements Initializable {
     @FXML
     private Label totalincomelabel;
     @FXML
@@ -58,7 +62,20 @@ public class MonitorPageController {
     public ObservableList<User> investlist=FXCollections.observableArrayList();
 
 
-    public void onGetFinancesButtonClick(ActionEvent event)  {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        incomeamtcolumn.setCellValueFactory(new PropertyValueFactory<>("Income Amount"));
+        incometypecolumn.setCellValueFactory(new PropertyValueFactory<>("Income Type"));
+        incomedesccolumn.setCellValueFactory(new PropertyValueFactory<>("Income Description"));
+
+        expenseamtcolumn.setCellValueFactory(new PropertyValueFactory<>("Expense Amount"));
+        expensetypecolumn.setCellValueFactory(new PropertyValueFactory<>("Expense Type"));
+        expensedesccolumn.setCellValueFactory(new PropertyValueFactory<>("Income Description"));
+
+        investamtcolumn.setCellValueFactory(new PropertyValueFactory<>("Investment Amount"));
+        investtypecolumn.setCellValueFactory(new PropertyValueFactory<>("Investment Type"));
+        investdesccolumn.setCellValueFactory(new PropertyValueFactory<>("Investment Description"));
 
         String foreignkey=LoginPageController.foreignkey;
         int income=0,expense=0;
@@ -70,7 +87,6 @@ public class MonitorPageController {
         String getincomeamt="select sum(incomeamt) from userincome where uemail='"+foreignkey+"'";
         String getexpenseamt="select sum(expenseamt) from userexpense where uemail='"+foreignkey+"'";
         String getinvestmentamt="select sum(investmentamt) from userinvestment where uemail='"+foreignkey+"'";
-
         
         try {
             JDBC connectnow = new JDBC();
@@ -138,6 +154,8 @@ public class MonitorPageController {
         investmenttable.setItems(investlist);
 
         calculateFiscalLibility(income,expense);
+
+        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
     }
 
     private void calculateFiscalLibility(int income,int expense) {
@@ -155,7 +173,6 @@ public class MonitorPageController {
         }
     }
 }
-
 
 
 class User {
