@@ -1,14 +1,11 @@
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -16,7 +13,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 
-public class MonitorPageController implements Initializable {
+
+public class MonitorPageController  {
     @FXML
     private Label totalincomelabel;
     @FXML
@@ -60,22 +58,21 @@ public class MonitorPageController implements Initializable {
     public ObservableList<User> incomelist=FXCollections.observableArrayList();
     public ObservableList<User> expenselist=FXCollections.observableArrayList();
     public ObservableList<User> investlist=FXCollections.observableArrayList();
+    
 
+    public void onGetFinancesButoonClick(ActionEvent event) {
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+        incomeamtcolumn.setCellValueFactory(new PropertyValueFactory<User,String>("amount"));
+        incometypecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("type"));
+        incomedesccolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
 
-        incomeamtcolumn.setCellValueFactory(new PropertyValueFactory<>("Income Amount"));
-        incometypecolumn.setCellValueFactory(new PropertyValueFactory<>("Income Type"));
-        incomedesccolumn.setCellValueFactory(new PropertyValueFactory<>("Income Description"));
+        expenseamtcolumn.setCellValueFactory(new PropertyValueFactory<User,String>("amount"));
+        expensetypecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("type"));
+        expensedesccolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
 
-        expenseamtcolumn.setCellValueFactory(new PropertyValueFactory<>("Expense Amount"));
-        expensetypecolumn.setCellValueFactory(new PropertyValueFactory<>("Expense Type"));
-        expensedesccolumn.setCellValueFactory(new PropertyValueFactory<>("Income Description"));
-
-        investamtcolumn.setCellValueFactory(new PropertyValueFactory<>("Investment Amount"));
-        investtypecolumn.setCellValueFactory(new PropertyValueFactory<>("Investment Type"));
-        investdesccolumn.setCellValueFactory(new PropertyValueFactory<>("Investment Description"));
+        investamtcolumn.setCellValueFactory(new PropertyValueFactory<User,String>("amount"));
+        investtypecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("type"));
+        investdesccolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
 
         String foreignkey=LoginPageController.foreignkey;
         int income=0,expense=0;
@@ -155,7 +152,6 @@ public class MonitorPageController implements Initializable {
 
         calculateFiscalLibility(income,expense);
 
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
     }
 
     private void calculateFiscalLibility(int income,int expense) {
@@ -164,6 +160,7 @@ public class MonitorPageController implements Initializable {
             flaglabel.setStyle("-fx-background-color: #ff0000");
             messagelabel.setTextFill(Color.RED);
             messagelabel.setText("Your Expenses are not within the advised range in accordance to your Income!");
+            messagelabel.setWrapText(true);
         }
         else {
             flaglabel.setStyle("-fx-background-color: #00ff00");
@@ -171,29 +168,5 @@ public class MonitorPageController implements Initializable {
             messagelabel.setText("Your expenses are within the advised limit in accordance to your Income!");
             messagelabel.setWrapText(true);
         }
-    }
-}
-
-
-class User {
-
-    private String amount;
-    private String type;
-    private String desc;
-
-    public User(String amount,String type,String desc) {
-        this.amount=amount;
-        this.type=type;
-        this.desc=desc;
-    }
-
-    public String getAmount() {
-        return this.amount;
-    }
-    public String getType() {
-        return this.type;
-    }
-    public String getDesc() {
-        return this.desc;
     }
 }
