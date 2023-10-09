@@ -13,9 +13,9 @@ public class ReviewPageController {
     @FXML
     private Button submitbutton;
     @FXML
-    private Button redirectToHomePagebutton;
+    private Button redirectHomebutton;
 
-    public void toHomePage() throws IOException {
+    public void onRedirectHomeButtonClick() throws IOException {
         Stage currentstage=(Stage)submitbutton.getScene().getWindow();
         currentstage.close();
     }
