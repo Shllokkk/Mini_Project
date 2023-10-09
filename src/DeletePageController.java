@@ -1,5 +1,6 @@
 import java.sql.Statement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -99,16 +100,16 @@ public class DeletePageController {
 
     private void validatePassword(ActionEvent event) throws Exception{
 
-        String checkpass="Select * from usercredentials where password='"+passfield.getText()+"'";
+        String checkpass="select * from usercredentials where password='"+passfield.getText()+"'";
 
         JDBC connectnow= new JDBC();
         Connection connectdb=connectnow.getconnection();
 
         Statement statement=connectdb.createStatement();
 
-        int x=statement.executeUpdate(checkpass);
+        ResultSet resultset=statement.executeQuery(checkpass);
 
-        if(x==0) {
+        if(!resultset.next()) {
             passfield.setText("");
             passfield.setStyle("-fx-border-color: red;");
             passfield.setPromptText("⚠ Invalid Password!");

@@ -43,6 +43,14 @@ public class HomePageController implements Initializable {
             }
         });
 
+        choicebox.setOnAction(event -> {
+            try {
+                onDeleteAccountClick(event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 
     public void onLogoutClick(ActionEvent event) throws IOException {

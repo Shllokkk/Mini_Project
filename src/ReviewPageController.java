@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ReviewPageController {
@@ -20,9 +19,6 @@ public class ReviewPageController {
     @FXML
     private Button redirectHomebutton;
 
-<<<<<<< HEAD
-    public void onRedirectHomeButtonClick() throws IOException {
-=======
     @FXML
     private Label errorlabel;
 
@@ -48,7 +44,6 @@ public class ReviewPageController {
     }
 
     public void toHomePage() throws IOException {
->>>>>>> 1ae252473308cf46d1f30575455e8c874a3f8fec
         Stage currentstage=(Stage)submitbutton.getScene().getWindow();
         currentstage.close();
     }
