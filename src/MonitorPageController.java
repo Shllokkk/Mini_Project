@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.paint.Color;
 
 public class MonitorPageController {
     @FXML
@@ -60,10 +61,11 @@ public class MonitorPageController {
     public void onGetFinancesButtonClick(ActionEvent event)  {
 
         String foreignkey=LoginPageController.foreignkey;
+        int income=0,expense=0;
 
         String getincomedata = "select incometype,incomeamt,incomedesc from userincome where uemail ='"+foreignkey+"'";
         String getexpensedata = "select expensetype,expenseamt,expensedesc from userexpense where uemail ='"+foreignkey+"'";
-        String getinvestmentdata = "select investmentype,investmentamt,investmentdesc from userinvestment where uemail ='"+foreignkey+"'";
+        String getinvestmentdata = "select investmenttype,investmentamt,investmentdesc from userinvestment where uemail ='"+foreignkey+"'";
 
         String getincomeamt="select sum(incomeamt) from userincome where uemail='"+foreignkey+"'";
         String getexpenseamt="select sum(expenseamt) from userexpense where uemail='"+foreignkey+"'";
@@ -88,16 +90,73 @@ public class MonitorPageController {
                 
                 incomelist.add(incomeobj);
             }
-            ResultSet rset=statement.executeQuery(getincomeamt);
-            rset.next();
-            String str=rset.getString(1);
-            totalincomelabel.setText(str);
+            resultset=statement.executeQuery(getincomeamt);
+            resultset.next();
+            totalincomelabel.setText("₹ "+resultset.getString(1));
+            income=Integer.parseInt(resultset.getString(1));
+
+            resultset=statement.executeQuery(getexpensedata);
+
+            while(resultset.next()) {
+                String amount=resultset.getString("expenseamt");
+                String type=resultset.getString("expensetype");
+                String desc=resultset.getString("expensedesc");
+
+                User expenseobj=new User(amount, type, desc);
+
+                System.out.println(expenseobj.getAmount()+expenseobj.getType()+expenseobj.getDesc());
+                
+                expenselist.add(expenseobj);
+            }
+            resultset=statement.executeQuery(getexpenseamt);
+            resultset.next();
+            totalexpenselabel.setText("₹ "+resultset.getString(1));
+            expense=Integer.parseInt(resultset.getString(1));
+
+            resultset=statement.executeQuery(getinvestmentdata);
+
+            while(resultset.next()) {
+                String amount=resultset.getString("investmentamt");
+                String type=resultset.getString("investmenttype");
+                String desc=resultset.getString("investmentdesc");
+
+                User investmentobj=new User(amount, type, desc);
+
+                System.out.println(investmentobj.getAmount()+investmentobj.getType()+investmentobj.getDesc());
+                
+                investlist.add(investmentobj);
+            }
+            resultset=statement.executeQuery(getinvestmentamt);
+            resultset.next();
+            totalinvestlabel.setText("₹ "+resultset.getString(1));
+
         } catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
         }
         incometable.setItems(incomelist);
+        expensetable.setItems(expenselist);
+        investmenttable.setItems(investlist);
+
+        calculateFiscalLibility(income,expense);
+    }
+
+    private void calculateFiscalLibility(int income,int expense) {
+        
+        if(expense>income*0.25) {
+            flaglabel.setStyle("-fx-background-color: #ff0000");
+            messagelabel.setTextFill(Color.RED);
+            messagelabel.setText("Your Expenses are not within the advised range in accordance to your Income!");
+        }
+        else {
+            flaglabel.setStyle("-fx-background-color: #00ff00");
+            messagelabel.setTextFill(Color.GREEN);
+            messagelabel.setText("Your expenses are within the advised limit in accordance to your Income!");
+            messagelabel.setWrapText(true);
+        }
     }
 }
+
+
 
 class User {
 

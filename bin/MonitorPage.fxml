@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonitorPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonitorPageController">
    <children>
       <Pane layoutX="-6.0" layoutY="-6.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #6c25be;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,7 +21,7 @@
       </Pane>
       <Pane layoutX="141.0" layoutY="136.0" prefHeight="40.0" prefWidth="140.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="141.0">
          <children>
-            <Label fx:id="totalincomelabel" layoutX="3.0" layoutY="3.0" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #e9f5f9;" />
+            <Label fx:id="totalexpenselabel" layoutX="3.0" layoutY="3.0" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #e9f5f9;" />
          </children>
       </Pane>
       <Button layoutX="20.0" layoutY="76.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #d7bff2;" text="Total Income" AnchorPane.bottomAnchor="560.0" AnchorPane.leftAnchor="20.0">
@@ -41,18 +41,18 @@
       </Button>
       <Pane layoutX="141.0" layoutY="196.0" prefHeight="40.0" prefWidth="140.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="440.0" AnchorPane.leftAnchor="141.0">
          <children>
-            <Label fx:id="totalexpenselabel" layoutX="3.0" layoutY="3.0" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #e9f5f9;" />
+            <Label fx:id="totalinvestlabel" layoutX="3.0" layoutY="3.0" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #e9f5f9;" />
          </children>
       </Pane>
       <Pane layoutX="140.0" layoutY="76.0" prefHeight="40.0" prefWidth="141.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="560.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="563.0" AnchorPane.topAnchor="76.0">
          <children>
-            <Label fx:id="totalinvestlabel" layoutX="3.0" layoutY="3.0" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #e9f5f9;" />
+            <Label fx:id="totalincomelabel" layoutX="3.0" layoutY="3.0" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #e9f5f9;" />
          </children>
       </Pane>
       <Label fx:id="flaglabel" layoutX="20.0" layoutY="335.0" prefHeight="40.0" prefWidth="40.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="301.0" />
-      <Label fx:id="messagelabel" layoutX="20.0" layoutY="397.0" prefHeight="90.0" prefWidth="258.0">
+      <Label fx:id="messagelabel" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="20.0" layoutY="393.0" prefHeight="80.0" prefWidth="258.0" style="-fx-border-color: #000000;">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Button fx:id="getfinances" layoutX="170.0" layoutY="251.0" mnemonicParsing="false" onAction="#onGetFinancesButtonClick" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: #0099ff;" text="Get Finances" textFill="WHITE">

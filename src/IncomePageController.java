@@ -44,7 +44,7 @@ public class IncomePageController {
         JDBC connectnow=new JDBC();
         Connection connectdb=connectnow.getconnection();
 
-        String datainsert="insert into userincome values ('"+foreignkey+"','"+typefield.getText()+"','"+amtfield.getText()+"','"+descfield.getText()+"')";
+        String datainsert="insert into userincome values ('"+foreignkey+"','"+typefield.getText()+"',"+Integer.parseInt(amtfield.getText())+",'"+descfield.getText()+"')";
 
         Statement statement=connectdb.createStatement();
         int x=statement.executeUpdate(datainsert);
