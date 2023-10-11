@@ -47,11 +47,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-<<<<<<< HEAD
-      <Button fx:id="redirectHomebutton" layoutX="658.0" layoutY="625.0" mnemonicParsing="false" onAction="#onRedirectHomeButtonClick" style="-fx-background-color: #ffffff;" text="Back to DashBoard....." textFill="#0099ff">
-=======
-      <Button fx:id="redirectToHomePagebutton" layoutX="658.0" layoutY="625.0" mnemonicParsing="false" onAction="#toHomePage" style="-fx-background-color: #ffffff;" text="Back to DashBoard....." textFill="#0099ff">
->>>>>>> 1ae252473308cf46d1f30575455e8c874a3f8fec
+      <Button fx:id="redirecthomebutton" layoutX="658.0" layoutY="625.0" mnemonicParsing="false" onAction="#onRedirectHomeButtonClick" style="-fx-background-color: #ffffff;" text="Back to DashBoard....." textFill="#0099ff">
          <font>
             <Font size="16.0" />
          </font>

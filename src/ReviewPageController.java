@@ -17,7 +17,7 @@ public class ReviewPageController {
     @FXML
     private Button submitbutton;
     @FXML
-    private Button redirectHomebutton;
+    private Button redirecthomebutton;
 
     @FXML
     private Label errorlabel;
@@ -43,7 +43,7 @@ public class ReviewPageController {
             System.out.println("failed to insert review data!");
     }
 
-    public void toHomePage() throws IOException {
+    public void onRedirectHomeButtonClick() throws IOException {
         Stage currentstage=(Stage)submitbutton.getScene().getWindow();
         currentstage.close();
     }
