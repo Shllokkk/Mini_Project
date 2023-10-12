@@ -44,7 +44,7 @@ public class ExpensePageController {
         JDBC connectnow=new JDBC();
         Connection connectdb=connectnow.getconnection();
 
-        String datainsert="insert into userexpense values ('"+foreignkey+"','"+typefield.getText()+"',"+Integer.parseInt(amtfield.getText())+",'"+descfield.getText()+"')";
+        String datainsert="insert into userexpense values ('"+foreignkey+"','"+typefield.getText()+"',"+Integer.parseInt(amtfield.getText())+",'"+descfield.getText()+"',curdate())";
 
         Statement statement=connectdb.createStatement();
         int x=statement.executeUpdate(datainsert);

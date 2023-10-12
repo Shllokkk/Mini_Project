@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,19 +42,19 @@ public class MonitorPageController  {
     @FXML 
     private TableColumn<User,String> incometypecolumn;
     @FXML 
-    private TableColumn<User,String> incomedesccolumn;
+    private TableColumn<User,String> incomedatecolumn;
     @FXML 
     private TableColumn<User,String> expenseamtcolumn;;
     @FXML 
     private TableColumn<User,String> expensetypecolumn;
     @FXML 
-    private TableColumn<User,String> expensedesccolumn;
+    private TableColumn<User,String> expensedatecolumn;
     @FXML 
     private TableColumn<User,String> investamtcolumn;
     @FXML 
     private TableColumn<User,String> investtypecolumn;
     @FXML 
-    private TableColumn<User,String> investdesccolumn;
+    private TableColumn<User,String> investdatecolumn;
 
     public ObservableList<User> incomelist=FXCollections.observableArrayList();
     public ObservableList<User> expenselist=FXCollections.observableArrayList();
@@ -64,22 +65,22 @@ public class MonitorPageController  {
 
         incomeamtcolumn.setCellValueFactory(new PropertyValueFactory<User,String>("amount"));
         incometypecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("type"));
-        incomedesccolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
+        incomedatecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
 
         expenseamtcolumn.setCellValueFactory(new PropertyValueFactory<User,String>("amount"));
         expensetypecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("type"));
-        expensedesccolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
+        expensedatecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
 
         investamtcolumn.setCellValueFactory(new PropertyValueFactory<User,String>("amount"));
         investtypecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("type"));
-        investdesccolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
+        investdatecolumn.setCellValueFactory(new PropertyValueFactory<User,String>("desc"));
 
         String foreignkey=LoginPageController.foreignkey;
         int income=0,expense=0;
 
-        String getincomedata = "select incometype,incomeamt,incomedesc from userincome where uemail ='"+foreignkey+"'";
-        String getexpensedata = "select expensetype,expenseamt,expensedesc from userexpense where uemail ='"+foreignkey+"'";
-        String getinvestmentdata = "select investmenttype,investmentamt,investmentdesc from userinvestment where uemail ='"+foreignkey+"'";
+        String getincomedata = "select incometype,incomeamt,timestamp from userincome where uemail ='"+foreignkey+"'";
+        String getexpensedata = "select expensetype,expenseamt,timestamp from userexpense where uemail ='"+foreignkey+"'";
+        String getinvestmentdata = "select investmenttype,investmentamt,timestamp from userinvestment where uemail ='"+foreignkey+"'";
 
         String getincomeamt="select sum(incomeamt) from userincome where uemail='"+foreignkey+"'";
         String getexpenseamt="select sum(expenseamt) from userexpense where uemail='"+foreignkey+"'";
@@ -95,7 +96,9 @@ public class MonitorPageController  {
             while(resultset.next()) {
                 String amount=resultset.getString("incomeamt");
                 String type=resultset.getString("incometype");
-                String desc=resultset.getString("incomedesc");
+                Date date=resultset.getDate("timestamp");
+                String desc=date.toString();
+                //String desc=resultset.getString("incomedesc");
 
                 User incomeobj=new User(amount, type, desc);
 
@@ -113,7 +116,9 @@ public class MonitorPageController  {
             while(resultset.next()) {
                 String amount=resultset.getString("expenseamt");
                 String type=resultset.getString("expensetype");
-                String desc=resultset.getString("expensedesc");
+                Date date=resultset.getDate("timestamp");
+                String desc=date.toString();
+                //String desc=resultset.getString("expensedesc");
 
                 User expenseobj=new User(amount, type, desc);
 
@@ -131,7 +136,9 @@ public class MonitorPageController  {
             while(resultset.next()) {
                 String amount=resultset.getString("investmentamt");
                 String type=resultset.getString("investmenttype");
-                String desc=resultset.getString("investmentdesc");
+                Date date=resultset.getDate("timestamp");
+                String desc=date.toString();
+                //String desc=resultset.getString("investmentdesc");
 
                 User investmentobj=new User(amount, type, desc);
 
