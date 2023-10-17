@@ -53,6 +53,19 @@ public class HomePageController implements Initializable {
 
     }
 
+    public void onUsernameButtonClick(ActionEvent event) throws IOException{
+        Stage currentstage=(Stage)usernamebutton.getScene().getWindow();
+        currentstage.close();
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPage.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 844, 676);
+        Stage primaryStage=new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("JavaFX Application");
+        primaryStage.show();
+    }
+
     public void onLogoutClick(ActionEvent event) throws IOException {
         Stage currentstage=(Stage)usernamebutton.getScene().getWindow();
         currentstage.close();
