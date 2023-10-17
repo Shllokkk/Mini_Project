@@ -163,7 +163,7 @@ public class CreateAccountPageController {
 
             if(check>2) {
                 String insertusercredentials="insert into usercredentials (email,password) values ('"+emailfield.getText()+"','"+confpassfield.getText()+"')";
-                String insertuserdetails="insert into userdetails (username,firstname,lastname,userphn,useremail) values ('"+unamefield.getText()+"','"+fnamefield.getText()+"','"+lnamefield.getText()+"','"+phonefield.getText()+"','"+emailfield.getText()+"',curdate())";
+                String insertuserdetails="insert into userdetails (username,firstname,lastname,userphn,useremail,timestamp) values ('"+unamefield.getText()+"','"+fnamefield.getText()+"','"+lnamefield.getText()+"','"+phonefield.getText()+"','"+emailfield.getText()+"',curdate())";
 
                 int x=statement.executeUpdate(insertusercredentials);
                 int y=statement.executeUpdate(insertuserdetails);

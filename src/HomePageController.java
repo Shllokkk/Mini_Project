@@ -35,22 +35,22 @@ public class HomePageController implements Initializable {
         String[] array={"Logout","Delete Account"};
         choicebox.getItems().addAll(array);
 
-        choicebox.setOnAction(event -> {
+        choicebox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)-> {
             try {
-                onLogoutClick(event);
-            } catch (IOException e) {
+                if (newValue != null) {
+                    switch (newValue) {
+                        case "Logout":
+                            onLogoutClick(null);
+                            break;
+                        case "Delete Account":   
+                            onDeleteAccountClick(null);
+                            break;
+                    }
+                }
+            } catch(Exception e) {
                 e.printStackTrace();
             }
         });
-
-        choicebox.setOnAction(event -> {
-            try {
-                onDeleteAccountClick(event);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-
     }
 
     public void onUsernameButtonClick(ActionEvent event) throws IOException{

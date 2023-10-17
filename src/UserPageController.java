@@ -36,13 +36,18 @@ public class UserPageController implements Initializable{
             JDBC connectnow=new JDBC();
             Connection connectdb=connectnow.getconnection();
 
-            String getdetails=null;
+            String getdetails="select * from userdetails where useremail='"+foreignkey+"'";
 
             Statement statement=connectdb.createStatement();
 
             ResultSet resultset=statement.executeQuery(getdetails);
+            resultset.next();
 
-            
+            usernamelabel.setText(resultset.getString("username"));
+            namelabel.setText(resultset.getString("firstname")+resultset.getString("lastname"));
+            phonelabel.setText(resultset.getString("userphn"));
+            emaillabel.setText(resultset.getString("useremail"));
+            timestamplabel.setText(resultset.getString("timestamp"));
 
         }catch(ClassNotFoundException|SQLException e) {
             e.printStackTrace();
