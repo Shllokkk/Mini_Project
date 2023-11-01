@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="844.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
    <children>
       <Pane prefHeight="58.0" prefWidth="844.0" style="-fx-background-color: #6c25be;" AnchorPane.bottomAnchor="624.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="usernamebutton" layoutX="57.0" layoutY="8.0" mnemonicParsing="false" onAction="#onUsernameButtonClick" prefWidth="105.0" style="-fx-background-color: #6c25be;" text="USERNAME" textFill="WHITE">
+            <Button fx:id="usernamebutton" layoutX="44.0" layoutY="8.0" mnemonicParsing="false" onAction="#onUsernameButtonClick" prefWidth="105.0" style="-fx-background-color: #6c25be;" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>

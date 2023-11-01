@@ -47,7 +47,7 @@
       </Label>
       <Label fx:id="namelabel" alignment="CENTER" contentDisplay="CENTER" layoutX="428.0" layoutY="56.0" prefHeight="45.0" prefWidth="240.0" style="-fx-background-color: #e9f5f9;" textAlignment="CENTER" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="55.0">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font size="20.0" />
          </font>
       </Label>
       <Label fx:id="phonelabel" alignment="CENTER" contentDisplay="CENTER" layoutX="428.0" layoutY="131.0" prefHeight="43.0" prefWidth="240.0" style="-fx-background-color: #e9f5f9;" textAlignment="CENTER" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="130.0">
@@ -55,7 +55,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="emaillabel" alignment="CENTER" contentDisplay="CENTER" layoutX="432.0" layoutY="213.0" prefHeight="43.0" prefWidth="240.0" style="-fx-background-color: #e9f5f9;" textAlignment="CENTER" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="205.0">
+      <Label fx:id="emaillabel" alignment="CENTER" contentDisplay="CENTER" layoutX="422.0" layoutY="206.0" prefHeight="43.0" prefWidth="290.0" style="-fx-background-color: #e9f5f9;" textAlignment="CENTER" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="206.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

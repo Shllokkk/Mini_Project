@@ -98,7 +98,6 @@ public class MonitorPageController  {
                 String type=resultset.getString("incometype");
                 Date date=resultset.getDate("timestamp");
                 String desc=date.toString();
-                //String desc=resultset.getString("incomedesc");
 
                 User incomeobj=new User(amount, type, desc);
 

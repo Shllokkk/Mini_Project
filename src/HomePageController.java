@@ -1,11 +1,15 @@
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -32,6 +36,8 @@ public class HomePageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        String foreginkey=LoginPageController.foreignkey;
+
         String[] array={"Logout","Delete Account"};
         choicebox.getItems().addAll(array);
 
@@ -51,6 +57,23 @@ public class HomePageController implements Initializable {
                 e.printStackTrace();
             }
         });
+
+        try {
+            JDBC connectnow=new JDBC();
+            Connection connectdb=connectnow.getconnection();
+
+            String getdata="Select username from userdetails where useremail='"+foreginkey+"'";
+
+            Statement statement=connectdb.createStatement();
+            ResultSet resultset=statement.executeQuery(getdata);
+
+            resultset.next();
+
+            usernamebutton.setText(resultset.getString(1));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void onUsernameButtonClick(ActionEvent event) throws IOException{
