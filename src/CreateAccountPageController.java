@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class CreateAccountPageController {
@@ -45,8 +47,18 @@ public class CreateAccountPageController {
     public void onSignUpButtonClick(ActionEvent event) throws Exception {
 
         System.out.println("Button clicked!");
+
+        errorlabel.setText("");
+        fnamefield.setStyle("");
+        lnamefield.setStyle("");
+        emailfield.setStyle("");
+        phonefield.setStyle("");
+        unamefield.setStyle("");
+        createpassfield.setStyle("");
+        confpassfield.setStyle("");
+
         if (!fnamefield.getText().isEmpty() && !lnamefield.getText().isEmpty() && !emailfield.getText().isEmpty() && 
-        !phonefield.getText().isEmpty()&& !createpassfield.getText().isEmpty() && !confpassfield.getText().isEmpty()) {
+        !phonefield.getText().isEmpty() && !createpassfield.getText().isEmpty() && !confpassfield.getText().isEmpty()) {
             
             fnamefield.setStyle("");
             lnamefield.setStyle("");
@@ -56,10 +68,7 @@ public class CreateAccountPageController {
             createpassfield.setStyle("");
             confpassfield.setStyle("");
             validateSignUp(event);
-            /*errorlabel.setText("Sign Up successful!");*/
-            
         }
-
         else {
             if (fnamefield.getText().isEmpty() && lnamefield.getText().isEmpty() && emailfield.getText().isEmpty() && 
             phonefield.getText().isEmpty()&& createpassfield.getText().isEmpty() && confpassfield.getText().isEmpty()) {
@@ -74,32 +83,22 @@ public class CreateAccountPageController {
                 confpassfield.setStyle("-fx-border-color: red;");
             }
             else {
-                if(fnamefield.getText().isEmpty() || lnamefield.getText().isEmpty()){
+                if(fnamefield.getText().isEmpty())
                     fnamefield.setStyle("-fx-border-color: red;");
+
+                if(lnamefield.getText().isEmpty())
                     lnamefield.setStyle("-fx-border-color: red;");
-                }
-                else {
-                    fnamefield.setStyle("");
-                    lnamefield.setStyle("");
-                }   
 
                 if(emailfield.getText().isEmpty()) 
                     emailfield.setStyle("-fx-border-color: red;");
-                else 
-                    emailfield.setStyle("");
     
                 if(phonefield.getText().isEmpty()) 
                     phonefield.setStyle("-fx-border-color: red;");
-                else 
-                    phonefield.setStyle("");
                 
                 if(unamefield.getText().isEmpty()) 
                     unamefield.setStyle("-fx-border-color: red;");
-                else 
-                    unamefield.setStyle("");
 
                 if(createpassfield.getText().isEmpty() || confpassfield.getText().isEmpty()) {
-                    errorlabel.setText("⚠ Please enter and confirm password!");
                     createpassfield.setStyle("-fx-border-color: red;");
                     confpassfield.setStyle("-fx-border-color: red;");
                 }
@@ -111,10 +110,39 @@ public class CreateAccountPageController {
         System.out.println("Inside validateSignUp....");
 
         String phoneno=phonefield.getText();
+        String emailId=emailfield.getText();
+        String password=confpassfield.getText();
+
         int flag=0;
+
+        String emailRegex="^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        String passwordRegex="^[a-zA-Z0-9]+$";
+
+        Pattern emailPattern=Pattern.compile(emailRegex);
+        Pattern passwordPattern=Pattern.compile(passwordRegex);
+
         if(phoneno.length()!=10) {
             phonefield.setStyle("-fx-border-color: red;");
-            errorlabel.setText("⚠ Please enter valid phone number!");
+            phonefield.setText("");
+            phonefield.setPromptText("⚠ Please enter valid phone number!");
+            flag++;
+        }
+        if(!(emailPattern.matcher(emailId).matches())) {
+            emailfield.setStyle("-fx-border-color: red;");
+            emailfield.setText("");
+            emailfield.setPromptText("⚠ Please enter valid email ID!");
+            flag++;
+        }
+
+        if(!(passwordPattern.matcher(password).matches())) {
+            createpassfield.setStyle("-fx-border-color: red;");
+            confpassfield.setStyle("-fx-border-color: red;");
+
+            createpassfield.setText("");
+            confpassfield.setText("");
+
+            createpassfield.setPromptText("⚠ Passowrd should be alphanumeric");
+            confpassfield.setPromptText("⚠ Passowrd should be alphanumeric");
             flag++;
         }
 
@@ -169,6 +197,15 @@ public class CreateAccountPageController {
                 int y=statement.executeUpdate(insertuserdetails);
                 if(x==1&&y==1) {
                     System.out.println("data inserted!");
+
+                    fnamefield.setText("");
+                    lnamefield.setText("");
+                    emailfield.setText("");
+                    phonefield.setText("");
+                    createpassfield.setText("");
+                    confpassfield.setText("");
+
+                    errorlabel.setTextFill(Color.GREEN);
                     errorlabel.setText("Sign up successful!");
                 }
                 else
