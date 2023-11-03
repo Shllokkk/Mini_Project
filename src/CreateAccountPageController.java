@@ -60,14 +60,27 @@ public class CreateAccountPageController {
         if (!fnamefield.getText().isEmpty() && !lnamefield.getText().isEmpty() && !emailfield.getText().isEmpty() && 
         !phonefield.getText().isEmpty() && !createpassfield.getText().isEmpty() && !confpassfield.getText().isEmpty()) {
             
-            fnamefield.setStyle("");
-            lnamefield.setStyle("");
-            emailfield.setStyle("");
-            phonefield.setStyle("");
-            unamefield.setStyle("");
-            createpassfield.setStyle("");
-            confpassfield.setStyle("");
-            validateSignUp(event);
+            if(createpassfield.getText().length()<8) {
+                createpassfield.setStyle("-fx-border-color: red;");
+                confpassfield.setStyle("-fx-border-color: red;");
+
+                createpassfield.setText("");
+                confpassfield.setText("");
+
+                createpassfield.setPromptText("⚠ Minimum length is 8 characters!");
+                confpassfield.setPromptText("⚠ Minimum length is 8 characters!");
+            }
+            else {
+                fnamefield.setStyle("");
+                lnamefield.setStyle("");
+                emailfield.setStyle("");
+                phonefield.setStyle("");
+                unamefield.setStyle("");
+                createpassfield.setStyle("");
+                confpassfield.setStyle("");
+                validateSignUp(event);
+            }
+            
         }
         else {
             if (fnamefield.getText().isEmpty() && lnamefield.getText().isEmpty() && emailfield.getText().isEmpty() && 
@@ -111,7 +124,7 @@ public class CreateAccountPageController {
 
         String phoneno=phonefield.getText();
         String emailId=emailfield.getText();
-        String password=confpassfield.getText();
+        String password=createpassfield.getText();
 
         int flag=0;
 
@@ -134,7 +147,7 @@ public class CreateAccountPageController {
             flag++;
         }
 
-        if(!(passwordPattern.matcher(password).matches())) {
+        if((passwordPattern.matcher(password).matches())) {
             createpassfield.setStyle("-fx-border-color: red;");
             confpassfield.setStyle("-fx-border-color: red;");
 
@@ -202,6 +215,7 @@ public class CreateAccountPageController {
                     lnamefield.setText("");
                     emailfield.setText("");
                     phonefield.setText("");
+                    unamefield.setText("");
                     createpassfield.setText("");
                     confpassfield.setText("");
 
