@@ -47,13 +47,21 @@
                   <Font size="16.0" />
                </font>
             </Button>
+            <Label alignment="CENTER" layoutX="40.0" layoutY="542.0" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #ffffff; -fx-background-radius: 6px;" text="Have any suggestions for US?" textFill="#0099ff">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+            <Button fx:id="sharebutton" layoutX="111.0" layoutY="580.0" mnemonicParsing="false" onAction="#onShareButtonClick" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #0099ff;" text="Share here" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
-      <Label alignment="CENTER" layoutX="535.0" layoutY="628.0" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #ffffff; -fx-background-radius: 6px;" text="Have any suggestions for US?" textFill="#0099ff" />
-      <Button fx:id="sharebutton" layoutX="738.0" layoutY="628.0" mnemonicParsing="false" onAction="#onShareButtonClick" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #0099ff;" text="Share here" textFill="WHITE">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
+      <ImageView fitHeight="587.0" fitWidth="599.0" layoutX="234.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="20.0">
+         <image>
+            <Image url="@Images/Dashboardicon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
